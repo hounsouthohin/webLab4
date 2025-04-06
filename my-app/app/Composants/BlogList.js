@@ -1,7 +1,9 @@
 // components/BlogList.js
+// components/BlogList.js
 import fs from 'fs';
 import path from 'path';
 import BlogCard from './BlogCard';
+import styles from './moduleStyle/BlogList.module.css'; // Import du CSS Module
 
 export default function BlogList() {
   const filePath = path.join(process.cwd(), 'data', 'db.json');
@@ -10,8 +12,8 @@ export default function BlogList() {
   const posts = data.posts;
 
   return (
-    <div className="container mt-5 pb-5">
-      <div className="row gy-3 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 posts-container">
+    <div className={`container mt-5 pb-5 ${styles.container}`}>
+      <div className={`row gy-3 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 ${styles['posts-container']}`}>
         {posts.map((post) => (
           <BlogCard
             key={post.id}
@@ -26,4 +28,3 @@ export default function BlogList() {
     </div>
   );
 }
-

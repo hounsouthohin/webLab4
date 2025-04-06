@@ -1,35 +1,36 @@
-// app/Blogs/[id]/page.js
-import fs from 'fs';
-import path from 'path';
+
+// app/Composants/detailsBlog.js
 import CommentList from "./CommentList";
 import AddComment from "./AddComment";
 
-export default async function BlogDetails({ params }) {
-    // Définir le chemin vers le fichier db.json
-    const filePath = path.join(process.cwd(), 'data', 'db.json');
+export default function BlogDetails({ blog }) {
+  if (!blog) {
+    return <p>Blog non trouvé</p>;
+  }
 
-    // Lire le fichier db.json et le convertir en JSON
-    const fileData = fs.readFileSync(filePath, 'utf-8');
-    const data = JSON.parse(fileData);
-
-    // Trouver le blog correspondant à l'ID passé dans l'URL
-    const blog = data.posts.find(post => post.id === params.id);
-
-    // Si le blog n'est pas trouvé, retourner un message d'erreur
-    if (!blog) {
-        return <p>Blog non trouvé</p>;
-    }
-
-    // Retourner le rendu du blog avec les commentaires et le formulaire pour ajouter un commentaire
-    return (
-        <div className="container">
-            <h1>{blog.title}</h1>
-            <p>{blog.content}</p>
-            <p><strong>Auteur :</strong> {blog.author} | <strong>Date :</strong> {blog.date}</p>
-            
-            <h2>Commentaires</h2>
-            <AddComment postId={params.id} /> {/* Formulaire pour ajouter un commentaire */}
-            <CommentList postId={params.id} /> {/* Liste des commentaires */}
-        </div>
-    );
+  return (
+            <div className="container">
+                <div className="card carte m-auto h-100 w-100">
+                    <img src="../img/blog.jpg" className="card-img-top" alt="card" />
+                    <div className="card-body text-center d-flex flex-column">
+                        <h5 className="card-title text-white title fw-bold shadow-lg p-2 rounded">
+                            {blog.title}
+                        </h5>
+                            <div className="card-text card-text-scroll overflow-auto text-dark">
+                            {blog.content}
+                    </div>  
+                        <p className="card-meta mt-auto text-center text-dark">
+                            <small>
+                                <strong>Auteur :</strong> {blog.author} |  
+                                <strong>Date :</strong> {blog.date}
+                            </small>
+                        </p>
+                </div>
+            </div>
+      
+      <h2>Commentaires</h2>
+      <AddComment postId={blog.id} />
+      <CommentList postId={blog.id} />
+    </div>
+  );
 }

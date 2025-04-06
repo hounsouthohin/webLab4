@@ -1,0 +1,58 @@
+/* BlogList.module.css */
+.container {
+    margin-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .posts-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1rem;
+  }
+  
+  .card-text {
+    color: #666666;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-meta {
+    font-size: 0.875rem;
+    color: #999999;
+    text-align: center;
+  }
+  
+  .card-meta strong {
+    color: #333333;
+  }
+  
