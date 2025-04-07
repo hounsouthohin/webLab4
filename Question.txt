@@ -1,1 +1,41 @@
 Les composants sont'ils directement considérés comme type server dans next.js? et donc pas besoin de mettre use server au dessus
+
+
+
+À réviser :
+
+o Utilité et avantages des frameworks JavaScript
+
+o Principes du routage d’applications Web
+
+o Utilité et avantages des composants Web
+
+o Utilité et avantages des bases de données NoSQL
+
+o Les différentes façons de stocker l’information dans le navigateur
+
+o L’architecture MVC
+
+o Les notions fondamentales en React :
+
+§ Props
+
+§ États
+
+§ Hooks
+
+o Les notions avancées en React :
+
+§ Contextes
+
+§ HOC
+
+o Next.js
+
+§ Conventions dans les noms de fichiers
+
+§ Routage habituel et routes dynamiques
+
+§ Création d’API avec les Route Handlers
+
+§ Traitement des formulaires avec les Server Actions

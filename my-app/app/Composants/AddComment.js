@@ -8,10 +8,12 @@ export default function AddComment({ postId }) {
   const [content, setContent] = useState("");
 
   async function handleSubmit(formData) {
+    
     const content = formData.get("content");
     await submitComment(postId, content);
     setContent(""); // Reset du champ
   }
+
 
   return (
     <form action={handleSubmit} className="mb-3">
