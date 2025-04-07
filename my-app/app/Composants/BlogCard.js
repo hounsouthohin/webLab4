@@ -1,18 +1,19 @@
 import Link from "next/link";
+import styles from './moduleStyle/BlogCard.module.css'; // Importer le module CSS
 
 export default function BlogCard({ id, title, content, author, date }) {
     return (
-        <div className="col">
-            <Link href={`/Blogs/${id}`} className="text-decoration-none publication-link">
-                <div className="card carte m-auto h-100 w-100">
+        <div className={`col ${styles.blogCardContainer}`}>
+            <Link href={`/Blogs/${id}`} className="text-decoration-none">
+                <div className={`${styles.card} card m-auto h-100 w-100`}>
                     <img src="../img/blog.jpg" className="card-img-top" alt="card" />
-                    <div className="card-body text-center d-flex flex-column">
-                        <h5 className="card-title text-white title fw-bold shadow-lg p-2 rounded">
+                    <div className={`${styles.cardBody} card-body text-center d-flex flex-column`}>
+                        <h5 className={`${styles.title} card-title text-white fw-bold shadow-lg p-2 rounded`}>
                             {title}
                         </h5>
-                            <div className="card-text card-text-scroll overflow-auto text-dark">
+                        <div className={`${styles.cardText} card-text`}>
                             {content}
-                        </div>  
+                        </div>
                         <p className="card-meta mt-auto text-center text-dark">
                             <small>
                                 <strong>Auteur :</strong> {author} |  

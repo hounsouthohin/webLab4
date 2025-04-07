@@ -1,0 +1,77 @@
+/* Container principal de la carte */
+.blogCardContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    height: 550px;
+}
+
+/* Style de la carte */
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Style du body de la carte */
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Style du titre */
+.title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Contenu de la carte avec défilement */
+.cardText {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    max-height: 200px;
+    overflow-y: auto;  /* Ajout de la barre de défilement pour le contenu long */
+    padding-right: 10px;
+    margin-bottom: 15px;
+}
+
+/* Personnalisation de la barre de défilement */
+.cardText::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cardText::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.cardText::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* Style pour la zone de métadonnées (auteur et date) */
+.card-meta {
+    font-size: 0.875rem;
+    color: #777;
+}
+
+/* Ajout d'un effet visuel pour le survol des liens */
+.card-title:hover {
+    color: #007bff;
+    cursor: pointer;
+}

@@ -1,7 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'; // Pour les icônes de Bootstrap
 import Header from "./Composants/Header";
 import Footer from "./Composants/Footer";
 import "./globals.css";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +31,11 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+    crossOrigin="anonymous">
+</script>
+
       </body>
     </html>
   );

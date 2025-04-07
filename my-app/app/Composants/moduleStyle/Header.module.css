@@ -1,93 +1,132 @@
-
-  /* Header.module.css */
-
-/* Style global du header */
+/* Header container */
 .header {
-    background-color: #343a40; /* Fond sombre pour le header */
-    padding: 15px 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar {
-    background-color: transparent;
-  }
-  
-  .navbarBrand {
-    font-size: 1.5rem;
-    color: #ffffff; /* Texte blanc pour le logo */
-  }
-  
-  .navLink {
-    color: #f8f9fa; /* Couleur claire pour les liens */
-    transition: color 0.3s ease;
-  }
-  
-  .navLink:hover {
-    color: #007bff; /* Couleur d'accent sur hover */
-  }
-  
-  .profileContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .profileIcon {
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-    color: #ffffff; /* Texte du profil blanc */
-  }
-  
-  .profileIcon:hover {
-    color: #007bff; /* Couleur d'accent sur hover */
-  }
-  
-  .formGroup {
-    margin-top: 20px;
-  }
-  
-  .formControl {
-    border-radius: 25px;
-    padding-left: 15px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #f8f9fa; /* Fond clair pour les champs de recherche */
-    color: #495057; /* Texte sombre pour une meilleure lisibilité */
-  }
-  
-  .formControl:focus {
-    border-color: #007bff;
-    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
-  }
-  
-  .formLabel {
-    color: #ffffff; /* Texte blanc pour les labels */
-  }
-  
-  .formSelect {
-    border-radius: 25px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #f8f9fa;
-    color: #495057;
-  }
-  
-  .formSelect:focus {
-    border-color: #007bff;
-    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
-  }
-  
-  @media (max-width: 767px) {
-    .navbar-collapse {
-      text-align: center;
-    }
-  
-    .formControl {
-      width: 100%;
-      margin-top: 10px;
-    }
-  
-    .sortGroup {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Navbar container */
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+/* Logo styling */
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.75rem;
+}
+
+.siteName {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.menuLink {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menuLink:hover {
+  color: #f39c12;
+}
+
+/* Profile icon */
+.profileIcon {
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+/* Search & Filter section */
+.searchFilterContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.search {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.searchInput {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  flex-grow: 1;
+}
+
+.searchButton {
+  padding: 0.5rem 1rem;
+  background-color: #f39c12;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #e67e22;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+}
+.filterLabel {
+  color : #050709;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.filterSelect {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .searchFilterContainer {
       flex-direction: column;
-      align-items: flex-start;
-    }
+      align-items: stretch;
   }
-  
+
+  .search {
+      width: 100%;
+  }
+}

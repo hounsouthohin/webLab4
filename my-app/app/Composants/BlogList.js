@@ -11,20 +11,26 @@ export default function BlogList() {
   const data = JSON.parse(fileData);
   const posts = data.posts;
 
+
+
   return (
     <div className={`container mt-5 pb-5 ${styles.container}`}>
-      <div className={`row gy-3 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 ${styles['posts-container']}`}>
-        {posts.map((post) => (
-          <BlogCard
-            key={post.id}
-            id={post.id}
-            title={post.title}
-            content={post.content}
-            author={post.author}
-            date={post.date}
-          />
-        ))}
-      </div>
+        {/* Row pour aligner les cartes de manière fluide */}
+        <div className="row gy-4">
+            {posts.map((post) => (
+                <div className="col-12 col-sm-6 col-md-4 col-lg-3 blobCard" key={post.id}>
+                    <BlogCard
+                        id={post.id}
+                        title={post.title}
+                        content={post.content}
+                        author={post.author}
+                        date={post.date}
+                    />
+                </div>
+            ))}
+        </div>
     </div>
-  );
+);
+
+
 }
