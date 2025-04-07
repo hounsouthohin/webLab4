@@ -39,3 +39,10 @@ o Next.js
 § Création d’API avec les Route Handlers
 
 § Traitement des formulaires avec les Server Actions
+
+
+
+
+
+
+onupgradeneeded; onsuccess; les promesses ici; onerror; createObjectStore, transaction et ses actions(readonly); objectStore;
