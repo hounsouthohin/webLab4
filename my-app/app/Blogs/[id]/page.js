@@ -1,29 +1,35 @@
 // app/blog/[id]/page.js
-
-import fs from 'fs';
-import path from 'path';
+'use client';
+import { useEffect, useState } from 'react';
 import BlogDetails from '../../Composants/detailsBlog';
 
-export default async function Page({ params }) {
-  // Définir le chemin vers le fichier db.json
-  const filePath = path.join(process.cwd(), 'data', 'db.json');
+export default function Page({ params }) {
+  const [blog, setBlog] = useState(null);
 
-  // Lire le fichier db.json et le convertir en JSON
-  const fileData = fs.readFileSync(filePath, 'utf-8');
-  const data = JSON.parse(fileData);
+  useEffect(() => {
+    async function fetchBlogData() {
+      try {
+        const res = await fetch('/db.json');
+        const data = await res.json();
 
-  // Trouver le blog correspondant à l'ID passé dans l'URL
-  const blog = data.posts.find(post => post.id === params.id);
+        const foundBlog = data.posts.find(post => post.id === params.id);
+        setBlog(foundBlog);
+      } catch (error) {
+        console.error("Erreur lors de la récupération du blog :", error);
+      }
+    }
 
-  // Si le blog n'est pas trouvé, retourner un message d'erreur
+    fetchBlogData();
+  }, [params.id]);
+
   if (!blog) {
     return <p>Blog non trouvé</p>;
   }
 
-  // Retourner le rendu du blog avec les commentaires et le formulaire pour ajouter un commentaire
   return (
     <div className="container">
       <BlogDetails blog={blog} />
     </div>
   );
 }
+

@@ -1,35 +1,42 @@
-//fonction AddComment avec attribut action
+
 'use client';
 
-import { useState } from "react";
-import { submitComment } from '../Actions/SubmitComment'; // la fonction "use server"
+import { useState } from 'react';
+import { submitComment } from '../Actions/SubmitComment';
+import { addCommentToIndexedDB } from '@/utils/indexedDB';
 
-export default function AddComment({ postId }) {
-  const [content, setContent] = useState("");
+export default function AddCommentForm({ postId }) {
+  const [content, setContent] = useState('');
 
   async function handleSubmit(formData) {
-    
     const content = formData.get("content");
-    await submitComment(postId, content);
-    setContent(""); // Reset du champ
+
+    // 1. Appel au serveur
+    const newComment = await submitComment(postId, content);
+
+    // 2. Sauvegarde dans IndexedDB (client)
+    await addCommentToIndexedDB(newComment);
+
+    // 3. Réinitialiser le champ
+    setContent('');
   }
 
-
   return (
-    <form action={handleSubmit} className="mb-3">
-      <h2>Ajouter un commentaire</h2>
-      <div className="mb-3">
-        <label htmlFor="content" className="form-label">Contenu</label>
-        <textarea
-          className="form-control"
-          id="content"
-          name="content"
-          rows="3"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">Ajouter</button>
+    <form action={handleSubmit} className="flex flex-col gap-2 mt-4">
+      <textarea
+        name="content"
+        placeholder="Écrivez votre commentaire ici..."
+        required
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        className="border border-gray-300 rounded p-2 w-full h-24 resize-none"
+      />
+      <button
+        type="submit"
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-fit self-end"
+      >
+        Ajouter le commentaire
+      </button>
     </form>
   );
 }

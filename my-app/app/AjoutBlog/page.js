@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { addPostToIndexedDB } from '../../utils/indexedDB';
 
 export default function AddBlog() {
   const [formData, setFormData] = useState({
@@ -36,13 +37,20 @@ export default function AddBlog() {
       })
     });
 
+  
     if (response.ok) {
+      const createdPost = await response.json(); // <- important pour recevoir l'article avec id + date
+      await addPostToIndexedDB(createdPost);
       alert("Article ajouté !");
       router.push('../');
-    } else {
+    }
+    else {
       alert("Erreur lors de l’ajout");
     }
   };
+
+
+  
 
   return (
     <div className="container py-5">

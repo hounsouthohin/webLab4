@@ -5,15 +5,19 @@ const STORE_NAME_COMMENTS = 'comments';
 
 // Fonction pour ouvrir une base de données IndexedDB
 const openDB = () => {
+  if (typeof window === 'undefined') {
+    return Promise.reject(new Error('IndexedDB n’est pas disponible côté serveur'));
+  }
+
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    const request = window.indexedDB.open(DB_NAME, DB_VERSION);
 
     request.onsuccess = (event) => {
       resolve(event.target.result);
     };
 
     request.onerror = (event) => {
-      reject('Erreur lors de l’ouverture de la base de données IndexedDB');
+      reject(new Error('Erreur lors de l’ouverture de la base de données IndexedDB'));
     };
 
     request.onupgradeneeded = (event) => {
@@ -21,9 +25,12 @@ const openDB = () => {
       if (!db.objectStoreNames.contains(STORE_NAME_POSTS)) {
         db.createObjectStore(STORE_NAME_POSTS, { keyPath: 'id' });
       }
+     
       if (!db.objectStoreNames.contains(STORE_NAME_COMMENTS)) {
-        db.createObjectStore(STORE_NAME_COMMENTS, { keyPath: 'id' });
+        const commentStore = db.createObjectStore(STORE_NAME_COMMENTS, { keyPath: 'id' });
+        commentStore.createIndex('postId', 'postId', { unique: false }); // ← index nécessaire pour getCommentsFromIndexedDB
       }
+      
     };
   });
 };
@@ -36,7 +43,7 @@ export const addPostToIndexedDB = async (post) => {
   store.add(post);
   return new Promise((resolve, reject) => {
     transaction.oncomplete = () => resolve(post);
-    transaction.onerror = () => reject('Erreur lors de l’ajout du post');
+    transaction.onerror = () => reject(new Error('Erreur lors de l’ajout du post'));
   });
 };
 
@@ -48,7 +55,7 @@ export const getPostsFromIndexedDB = async () => {
   const request = store.getAll();
   return new Promise((resolve, reject) => {
     request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject('Erreur lors de la récupération des posts');
+    request.onerror = () => reject(new Error('Erreur lors de la récupération des posts'));
   });
 };
 
@@ -60,7 +67,7 @@ export const addCommentToIndexedDB = async (comment) => {
   store.add(comment);
   return new Promise((resolve, reject) => {
     transaction.oncomplete = () => resolve(comment);
-    transaction.onerror = () => reject('Erreur lors de l’ajout du commentaire');
+    transaction.onerror = () => reject(new Error('Erreur lors de l’ajout du commentaire'));
   });
 };
 
@@ -69,10 +76,16 @@ export const getCommentsFromIndexedDB = async (postId) => {
   const db = await openDB();
   const transaction = db.transaction(STORE_NAME_COMMENTS, 'readonly');
   const store = transaction.objectStore(STORE_NAME_COMMENTS);
+
+  // Vérifie que l’index postId existe (à créer sinon !)
+  if (!store.indexNames.contains('postId')) {
+    return [];
+  }
+
   const index = store.index('postId');
   const request = index.getAll(postId);
   return new Promise((resolve, reject) => {
     request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject('Erreur lors de la récupération des commentaires');
+    request.onerror = () => reject(new Error('Erreur lors de la récupération des commentaires'));
   });
 };

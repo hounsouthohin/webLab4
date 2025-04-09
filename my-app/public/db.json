@@ -48,41 +48,6 @@
       "content": "Express.js est un framework web rapide et minimaliste pour Node.js, idéal pour construire des API performantes. Cet article guide le lecteur à travers le processus complet de création et de déploiement d'une API RESTful avec Express.js. Nous commencerons par la configuration du projet et la structuration des routes. Ensuite, nous aborderons l'intégration d'une base de données (comme MongoDB), la gestion des erreurs, et l'implémentation de l'authentification avec JWT. L'article couvrira également des aspects importants comme la validation des données entrantes, la documentation de l'API avec Swagger, et les tests unitaires. Enfin, nous explorerons les options de déploiement, y compris l'utilisation de services cloud comme Heroku ou AWS.",
       "author": "Olivier Giraud",
       "date": "2025-02-14"
-    },
-    {
-      "id": "1740164074117",
-      "title": "L'humour dans le monde du développement : Quand les bugs deviennent des blagues",
-      "author": "Minautor",
-      "content": "L'humour est un élément essentiel pour maintenir un bon moral dans le monde souvent stressant du développement logiciel. Cette blague légère sur les bugs dans la nature illustre parfaitement comment les développeurs peuvent trouver de l'humour dans leur travail quotidien. Nous explorerons d'autres blagues classiques du monde de la programmation, discuterons de l'importance de l'humour pour la cohésion d'équipe et la gestion du stress, et examinerons comment l'humour peut même être utilisé comme outil pédagogique dans l'apprentissage du code. L'article se terminera par une réflexion sur la façon dont l'humour peut contribuer à une culture d'entreprise positive dans le secteur technologique.",
-      "date": "2025-02-21"
-    },
-    {
-      "id": "1740164474179",
-      "title": "Les théories du complot extraterrestre : Entre science-fiction et réalité",
-      "author": "Marc Zunk",
-      "content": "Les théories sur l'existence des extraterrestres ont longtemps fasciné l'humanité. Cet article explore les origines de ces théories, depuis les observations d'OVNI jusqu'aux spéculations sur les visites extraterrestres anciennes. Nous examinerons les preuves souvent citées par les théoriciens du complot, telles que les crop circles et les témoignages d'enlèvements. L'article abordera également la perspective scientifique sur la vie extraterrestre, discutant des projets SETI et des découvertes récentes d'exoplanètes. Nous analyserons l'impact culturel de ces théories sur la littérature, le cinéma et même la politique. Enfin, nous réfléchirons sur ce que ces théories révèlent de la psychologie humaine et de notre place dans l'univers.",
-      "date": "2025-02-21"
-    },
-    {
-      "id": "1740164525326",
-      "title": "Lionel Messi : L'héritage d'une légende du football moderne",
-      "author": "L'Équipe",
-      "content": "Lionel Messi est largement considéré comme l'un des meilleurs footballeurs de tous les temps. Cet article retrace la carrière extraordinaire de Messi, depuis ses débuts à La Masia jusqu'à ses triomphes en Ligue des Champions et en Coupe du Monde. Nous analyserons son style de jeu unique, ses records impressionnants, et son impact sur le FC Barcelone et l'équipe nationale argentine. L'article examinera également les comparaisons avec d'autres légendes comme Pelé, Maradona et Cristiano Ronaldo. Nous discuterons de l'influence de Messi sur le football moderne, tant sur le terrain qu'en dehors, et spéculerons sur son héritage futur dans l'histoire du sport. Enfin, nous explorerons les défis et les attentes qui accompagnent le statut de 'meilleur joueur' dans le football contemporain.",
-      "date": "2025-02-21"
-    },
-    {
-      "id": "1740164668535",
-      "title": "Le vol : Un fléau social aux multiples facettes",
-      "author": "Marc Marc",
-      "content": "Le vol reste un problème majeur dans de nombreuses sociétés. Cet article approfondit les différents aspects du vol, de ses causes socio-économiques à ses conséquences sur les individus et les communautés. Nous examinerons les différentes formes de vol, du petit larcin au crime organisé, en passant par la cybercriminalité. L'article analysera les facteurs qui contribuent à la prévalence du vol, tels que la pauvreté, l'inégalité et les addictions. Nous discuterons des stratégies de prévention et de lutte contre le vol, y compris les approches policières, les initiatives communautaires et les politiques sociales. Enfin, nous réfléchirons sur les défis éthiques et juridiques liés à la punition et à la réhabilitation des voleurs, ainsi que sur les moyens de créer une société plus juste et équitable pour réduire l'incidence du vol.",
-      "date": "2025-02-21"
-    },
-    {
-      "title": "SOCCER et Non Football",
-      "content": "soccer et non football",
-      "author": "Un penseur né",
-      "date": "2025-04-07",
-      "id": "1744064191884"
     }
   ],
   "comments": [
@@ -141,103 +106,16 @@
       "date": "2025-02-28"
     },
     {
-      "id": "10",
-      "postId": 5,
-      "content": "Utiliser les hooks de React m'a simplifié la vie.",
-      "date": "2025-03-01"
-    },
-    {
-      "id": "11",
-      "postId": 6,
-      "content": "Docker simplifie la gestion des dépendances.",
-      "date": "2025-03-02"
-    },
-    {
-      "id": "12",
-      "postId": 6,
-      "content": "Les conteneurs, un vrai gain de temps !",
-      "date": "2025-03-03"
-    },
-    {
-      "id": "13",
+      "id": "1744170379927",
       "postId": 7,
-      "content": "J'adore Express.js pour créer des APIs.",
-      "date": "2025-03-04"
+      "content": "well done ",
+      "date": "2025-04-09T03:46:19.927Z"
     },
     {
-      "id": "14",
-      "postId": 7,
-      "content": "Article très bien structuré, merci !",
-      "date": "2025-03-05"
-    },
-    {
-      "id": "51c1",
-      "content": "Tres bel article",
-      "postId": "2"
-    },
-    {
-      "id": "39bc",
-      "content": "Genial l'asynchronité",
-      "postId": "2"
-    },
-    {
-      "id": "afee",
-      "content": "j'aime plutot blazor server pour sa complexité",
-      "postId": "4"
-    },
-    {
-      "id": "a864",
-      "content": "salut",
-      "postId": "2"
-    },
-    {
-      "id": "0de4",
-      "content": "allo",
-      "postId": "1"
-    },
-    {
-      "id": "7172",
-      "content": "salut",
-      "postId": "1"
-    },
-    {
-      "id": "eb46",
-      "content": "Messi plutot man",
-      "postId": "1740757096910"
-    },
-    {
-      "id": "0575",
-      "postId": "1",
-      "content": "allo"
-    },
-    {
-      "id": "c87b",
-      "postId": "1",
-      "content": "suis je la?"
-    },
-    {
-      "id": "1743961179512",
-      "postId": 1,
-      "content": "dfsfsfffsdsds",
-      "date": "2025-04-06T17:39:39.512Z"
-    },
-    {
-      "id": "1743994065373",
-      "postId": 2,
-      "content": "bien redigé",
-      "date": "2025-04-07T02:47:45.373Z"
-    },
-    {
-      "id": "1743995078214",
-      "postId": 1740421405242,
-      "content": "allo",
-      "date": "2025-04-07T03:04:38.214Z"
-    },
-    {
-      "id": "1744048546816",
-      "postId": 5,
-      "content": "bien\n",
-      "date": "2025-04-07T17:55:46.816Z"
+      "id": "1744170911351",
+      "postId": 4,
+      "content": "hello",
+      "date": "2025-04-09T03:55:11.351Z"
     }
   ]
 }

@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
-import { addPostToIndexedDB } from '../../../utils/indexedDB';
+
 export async function POST(request) {
-  const filePath = path.join(process.cwd(), 'data', 'db.json');
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const filePath = path.join(process.cwd(), '/db.json');
+
   let data;
   try {
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
     data = JSON.parse(fileContent);
     if (!Array.isArray(data.posts)) {
       throw new Error("Le fichier JSON ne contient pas un tableau 'posts'");
@@ -13,8 +14,8 @@ export async function POST(request) {
   } catch (error) {
     return new Response(JSON.stringify({ error: 'Erreur de parsing JSON' }), { status: 500 });
   }
+
   const newPost = await request.json();
-  // Vérification que les champs sont remplis
   if (
     !newPost.title?.trim() ||
     !newPost.content?.trim() ||
@@ -22,19 +23,22 @@ export async function POST(request) {
   ) {
     return new Response(JSON.stringify({ error: 'Tous les champs sont requis.' }), { status: 400 });
   }
+
   newPost.id = Date.now().toString();
   newPost.date = new Date().toISOString().split('T')[0];
-  // Ajout de la publication IndexedDB
-  await addPostToIndexedDB(newPost);
+
   data.posts.push(newPost);
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
-  return new Response(JSON.stringify({ message: 'Ajouté avec succès' }), { status: 200 });
+
+
+  return new Response(JSON.stringify(newPost), { status: 200 });
+  
 }
 
 
 
 
-const filePath = path.join(process.cwd(), 'data', 'db.json');
+/*const filePath = path.join(process.cwd(), 'data', 'db.json');
 
 // Fonction pour lire le fichier JSON
 const readData = () => {
@@ -119,4 +123,4 @@ export async function DELETE(req, { params }) {
 
   return new Response(JSON.stringify({ message: 'Publication supprimée avec succès' }), { status: 200 });
 }
-
+*/
