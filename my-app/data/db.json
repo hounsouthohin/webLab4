@@ -48,6 +48,48 @@
       "content": "Express.js est un framework web rapide et minimaliste pour Node.js, idéal pour construire des API performantes. Cet article guide le lecteur à travers le processus complet de création et de déploiement d'une API RESTful avec Express.js. Nous commencerons par la configuration du projet et la structuration des routes. Ensuite, nous aborderons l'intégration d'une base de données (comme MongoDB), la gestion des erreurs, et l'implémentation de l'authentification avec JWT. L'article couvrira également des aspects importants comme la validation des données entrantes, la documentation de l'API avec Swagger, et les tests unitaires. Enfin, nous explorerons les options de déploiement, y compris l'utilisation de services cloud comme Heroku ou AWS.",
       "author": "Olivier Giraud",
       "date": "2025-02-14"
+    },
+    {
+      "id": "1744252098061",
+      "title": "hello world",
+      "content": "hello zorld",
+      "author": "zorld",
+      "date": "2025-04-10"
+    },
+    {
+      "id": "1744252282047",
+      "title": "hello world",
+      "content": "hello zorld",
+      "author": "zorld",
+      "date": "2025-04-10"
+    },
+    {
+      "id": "1744252386689",
+      "title": "hello world",
+      "content": "fsfsfsf",
+      "author": "zorld",
+      "date": "2025-04-10"
+    },
+    {
+      "id": "1744252449124",
+      "title": "hello world",
+      "content": "fsfsfsf",
+      "author": "zorld",
+      "date": "2025-04-10"
+    },
+    {
+      "id": "1744255238542",
+      "title": "zero",
+      "content": "zero",
+      "author": "zeor",
+      "date": "2025-04-10"
+    },
+    {
+      "id": "1744255281376",
+      "title": "SOCCER et Non Football",
+      "content": "sdqs",
+      "author": "dsqdqsd",
+      "date": "2025-04-10"
     }
   ],
   "comments": [
@@ -64,58 +106,22 @@
       "date": "2025-02-21"
     },
     {
-      "id": "3",
+      "id": "41e6",
       "postId": 2,
-      "content": "Les promesses étaient compliquées avant cet article !",
-      "date": "2025-02-22"
+      "content": "reussite",
+      "date": "2025-04-10T03:17:02.169Z"
     },
     {
-      "id": "4",
+      "id": "d474",
       "postId": 2,
-      "content": "J'ai enfin compris les callbacks grâce à ça.",
-      "date": "2025-02-23"
+      "content": "allo",
+      "date": "2025-04-10T03:19:11.422Z"
     },
     {
-      "id": "5",
-      "postId": 3,
-      "content": "JSON Server est vraiment pratique pour les tests.",
-      "date": "2025-02-24"
-    },
-    {
-      "id": "6",
-      "postId": 3,
-      "content": "Facile à installer, parfait pour les mockups.",
-      "date": "2025-02-25"
-    },
-    {
-      "id": "7",
-      "postId": 4,
-      "content": "Blazor Server est plus rapide à charger.",
-      "date": "2025-02-26"
-    },
-    {
-      "id": "8",
-      "postId": 4,
-      "content": "Je préfère Blazor WebAssembly pour l'offline.",
-      "date": "2025-02-27"
-    },
-    {
-      "id": "9",
-      "postId": 5,
-      "content": "React rend le frontend super dynamique !",
-      "date": "2025-02-28"
-    },
-    {
-      "id": "1744170379927",
-      "postId": 7,
-      "content": "well done ",
-      "date": "2025-04-09T03:46:19.927Z"
-    },
-    {
-      "id": "1744170911351",
-      "postId": 4,
-      "content": "hello",
-      "date": "2025-04-09T03:55:11.351Z"
+      "id": "cbb5",
+      "postId": 2,
+      "content": "bien",
+      "date": "2025-04-10T03:20:11.223Z"
     }
   ]
 }

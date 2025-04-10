@@ -28,8 +28,6 @@ export default function BlogDetails({ blog }) {
             </p>
         </div>
     </div>
-
-    <AddComment postId={blog.id} />
     <CommentList postId={blog.id} />
 </div>
   );

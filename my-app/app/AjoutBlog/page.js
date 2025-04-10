@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { addPostToIndexedDB } from '../../utils/indexedDB';
+import { addPostToIndexedDB, getPostsFromIndexedDB } from '../utils/indexedDB';
 
 export default function AddBlog() {
   const [formData, setFormData] = useState({
@@ -11,7 +11,30 @@ export default function AddBlog() {
     author: '',
   });
   const [showConfirm, setShowConfirm] = useState(false);
+  const [posts, setPosts] = useState([]);
   const router = useRouter();
+
+  // Fonction pour récupérer les posts depuis le serveur ou IndexedDB
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch('http://localhost:5501/posts');
+
+      if (response.ok) {
+        const postsFromServer = await response.json();
+        setPosts(postsFromServer); // Récupérer les posts depuis le serveur
+      } else {
+        throw new Error('Erreur lors de la récupération des posts du serveur');
+      }
+    } catch (error) {
+      console.error("Le serveur est hors ligne, récupération depuis IndexedDB", error);
+      const postsFromIndexedDB = await getPostsFromIndexedDB(); // Récupérer les posts depuis IndexedDB
+      setPosts(postsFromIndexedDB);
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts(); // Appel au lancement pour récupérer les posts
+  }, []);
 
   const handleChange = (e) => {
     setFormData(prev => ({
@@ -28,29 +51,42 @@ export default function AddBlog() {
     setShowConfirm(false);
     if (!confirmed) return;
 
-    const response = await fetch('/api/Blogs', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...formData,
-        date: new Date().toISOString().split('T')[0]
-      })
-    });
+    const newPost = {
+      ...formData,
+      date: new Date().toISOString().split('T')[0],
+      id: Date.now().toString(), // Ajout d'un ID unique
+    };
 
-  
-    if (response.ok) {
-      const createdPost = await response.json(); // <- important pour recevoir l'article avec id + date
-      await addPostToIndexedDB(createdPost);
-      alert("Article ajouté !");
-      router.push('../');
-    }
-    else {
-      alert("Erreur lors de l’ajout");
+    // Tentative de poster sur le serveur db.json (localhost)
+    try {
+      const response = await fetch('http://localhost:5501/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newPost)
+      });
+      
+      if (response.ok) {
+        const createdPost = await response.json();
+        setPosts((prevPosts) => [...prevPosts, createdPost]); // Ajouter le post au tableau local
+        alert("Article ajouté !");
+        router.push('../');
+      } else {
+        throw new Error("Erreur serveur");
+      }
+    } catch (error) {
+      // Si l'API ne fonctionne pas (serveur hors ligne), on enregistre dans IndexedDB
+      console.error("Erreur lors de l'ajout via l'API, sauvegarde dans IndexedDB", error);
+      try {
+        await addPostToIndexedDB(newPost);  // Enregistrer dans IndexedDB
+        setPosts((prevPosts) => [...prevPosts, newPost]); // Ajouter le post localement
+        alert("Serveur hors ligne, article sauvegardé localement.");
+        router.push('../');
+      } catch (indexedDBError) {
+        console.error('Erreur lors de l’ajout dans IndexedDB', indexedDBError);
+        alert("Erreur lors de la sauvegarde locale.");
+      }
     }
   };
-
-
-  
 
   return (
     <div className="container py-5">
@@ -82,6 +118,9 @@ export default function AddBlog() {
           <button className="btn btn-secondary" onClick={() => handleConfirm(false)}>Non</button>
         </div>
       )}
+
+      
     </div>
   );
 }
+

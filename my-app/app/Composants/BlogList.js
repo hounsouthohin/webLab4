@@ -3,7 +3,7 @@
 import BlogCard from './BlogCard';
 import styles from './moduleStyle/BlogList.module.css';
 import { useEffect } from 'react';
-import { syncPostsAndCommentsToIndexedDB } from '@/utils/sync';
+import { syncPostsAndCommentsToIndexedDB } from '@/app/utils/sync';
 import Link from "next/link";
 
 export default function BlogList({ posts }) {

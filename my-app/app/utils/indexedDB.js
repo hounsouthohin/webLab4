@@ -61,15 +61,22 @@ export const getPostsFromIndexedDB = async () => {
 
 // Fonction pour ajouter un commentaire dans IndexedDB
 export const addCommentToIndexedDB = async (comment) => {
+  // Si l'ID n'est pas déjà présent, on en génère un
+  if (!comment.id) {
+    comment.id = new Date().getTime();  // Par exemple, utilise un timestamp comme ID
+  }
+
   const db = await openDB();
   const transaction = db.transaction(STORE_NAME_COMMENTS, 'readwrite');
   const store = transaction.objectStore(STORE_NAME_COMMENTS);
-  store.add(comment);
+  
+  store.add(comment); // Ajoute le commentaire à IndexedDB
   return new Promise((resolve, reject) => {
     transaction.oncomplete = () => resolve(comment);
     transaction.onerror = () => reject(new Error('Erreur lors de l’ajout du commentaire'));
   });
 };
+
 
 // Fonction pour récupérer les commentaires par postId
 export const getCommentsFromIndexedDB = async (postId) => {

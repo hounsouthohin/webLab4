@@ -1,23 +1,22 @@
-
 'use client';
 
 import { useState } from 'react';
 import { submitComment } from '../Actions/SubmitComment';
-import { addCommentToIndexedDB } from '@/utils/indexedDB';
 
-export default function AddCommentForm({ postId }) {
+
+export default function AddComment({ postId, addNewComment }) {
   const [content, setContent] = useState('');
 
   async function handleSubmit(formData) {
     const content = formData.get("content");
 
-    // 1. Appel au serveur
+    // 1. Appel au serveur pour ajouter le commentaire
     const newComment = await submitComment(postId, content);
 
-    // 2. Sauvegarde dans IndexedDB (client)
-    await addCommentToIndexedDB(newComment);
+    // 3. Appel de la fonction pour ajouter le commentaire dans la liste (parent)
+    addNewComment(newComment);
 
-    // 3. Réinitialiser le champ
+    // 4. Réinitialiser le champ
     setContent('');
   }
 
