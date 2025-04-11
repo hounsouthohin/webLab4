@@ -1,18 +1,11 @@
 {
   "posts": [
     {
-      "id": "1",
-      "title": "Introduction à JavaScript : Les fondamentaux pour débuter",
-      "content": "JavaScript est un langage de programmation essentiel pour le développement web moderne. Dans cet article, nous explorerons les concepts de base tels que les variables, les types de données, les structures de contrôle (if, else, switch), les boucles (for, while), et les fonctions. Nous aborderons également les concepts de portée (scope) et de fermetures (closures). Des exemples pratiques seront fournis pour illustrer chaque concept, permettant aux débutants de commencer à coder rapidement. Nous conclurons avec des ressources recommandées pour approfondir vos connaissances en JavaScript.",
-      "author": "Jean Dupont",
-      "date": "2025-02-20"
-    },
-    {
       "id": "2",
-      "title": "Les promesses en JavaScript : Gérer l'asynchronicité avec élégance",
-      "content": "Les promesses sont un concept fondamental en JavaScript pour gérer les opérations asynchrones. Cet article approfondit le fonctionnement des promesses, expliquant leur syntaxe, leurs états (pending, fulfilled, rejected) et les méthodes associées (then, catch, finally). Nous examinerons des cas d'utilisation courants comme les appels API et la lecture de fichiers. L'article abordera également les concepts avancés tels que la composition de promesses, Promise.all() et Promise.race(). Enfin, nous comparerons les promesses avec les callbacks traditionnels et introduirons les fonctions async/await comme syntaxe alternative.",
-      "author": "Marie Martin",
-      "date": "2025-02-19"
+      "title": "hello world",
+      "content": "hello zorld",
+      "author": "zorld",
+      "date": "2025-04-10"
     },
     {
       "id": "3",
